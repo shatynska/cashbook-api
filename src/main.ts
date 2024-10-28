@@ -3,6 +3,7 @@ import { VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import helmet from 'helmet';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -22,6 +23,9 @@ async function bootstrap() {
   const documentFactory = () =>
     SwaggerModule.createDocument(app, documentConfig);
   SwaggerModule.setup('v1', app, documentFactory);
+
+  app.enableCors();
+  app.use(helmet());
 
   await app.listen(process.env.PORT ?? 3000);
 }
