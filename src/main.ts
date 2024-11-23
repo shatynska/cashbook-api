@@ -1,4 +1,4 @@
-import { patchNestjsSwagger } from '@anatine/zod-nestjs';
+import { patchNestjsSwagger as patchSwaggerToUseZodTypes } from '@anatine/zod-nestjs';
 import { VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -13,7 +13,7 @@ async function bootstrap() {
     defaultVersion: '1',
   });
 
-  patchNestjsSwagger();
+  patchSwaggerToUseZodTypes();
 
   const documentConfig = new DocumentBuilder()
     .setTitle('CashBook')
