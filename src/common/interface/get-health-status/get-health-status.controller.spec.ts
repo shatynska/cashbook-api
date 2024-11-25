@@ -1,7 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { Test, type TestingModule } from '@nestjs/testing';
 import { GetHealthStatusController } from './get-health-status.controller';
 
-describe('Health Controller', () => {
+describe('GetHealthStatusController', () => {
   let controller: GetHealthStatusController;
 
   beforeEach(async () => {
